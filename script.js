@@ -56,9 +56,12 @@ function resetGame() {
     cells.forEach(cell => {
         cell.textContent = '';
         cell.addEventListener('click', handleCellClick, { once: true });
-        window.location.reload();
+        
     });
-    currentPlayer = 'X';
+    // window.location.reload();
+    // currentPlayer = 'X';
+    messageElement.textContent = '';
+
 }
 
 function showMessage(message) {
