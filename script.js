@@ -1,4 +1,5 @@
 const cells = document.querySelectorAll('.cell');
+const resetButton = document.querySelectorAll('.button');
 
 let currentPlayer = 'X';
 
@@ -30,12 +31,14 @@ function handleCellClick(e) {
 
         if (checkWin()) {
             showMessage(`Player ${currentPlayer} wins!`);
-            resetGame();
+            //resetGame();
         } else if (gameBoard.every(cell => cell !== '')) {
             showMessage("It's a draw, Play Again :)");
-            resetGame();
+            //resetGame();
+            
         } else {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            
         }
     }
 }
@@ -53,6 +56,7 @@ function resetGame() {
     cells.forEach(cell => {
         cell.textContent = '';
         cell.addEventListener('click', handleCellClick, { once: true });
+        window.location.reload();
     });
     currentPlayer = 'X';
 }
